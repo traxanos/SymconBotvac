@@ -3,9 +3,9 @@
   "name": "BotvacRobot",
   "type": 3,
   "vendor": "Botvac",
-  "aliases": [ "Botvac Robot" ],
+  "aliases": ["Botvac Robot"],
   "parentRequirements": [],
   "childRequirements": [],
   "implemented": [],
-  "prefix": "BR"
+  "prefix": "BVC"
 }

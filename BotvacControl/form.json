@@ -1,13 +1,28 @@
 {
-  "elements": [
-    { "name": "Email", "type": "ValidationTextBox", "caption": "E-Mail" },
-    { "name": "Password", "type": "ValidationTextBox", "caption": "Passwort" },
-    { "name": "Category", "type": "SelectCategory", "caption": "Kategorie" }
+  "elements": [{
+      "name": "Email",
+      "type": "ValidationTextBox",
+      "caption": "E-Mail"
+    },
+    {
+      "name": "Password",
+      "type": "ValidationTextBox",
+      "caption": "Passwort"
+    },
+    {
+      "name": "Category",
+      "type": "SelectCategory",
+      "caption": "Kategorie"
+    }
   ],
-  "actions": [
-    { "type": "Button", "label": "Geräteabgleich", "onClick": "print_r(BC_Sync($id));" }
-  ],
-  "status": [
-    { "code": 201, "icon": "error", "caption": "Zugangsdaten ungültig" }
-  ]
+  "actions": [{
+    "type": "Button",
+    "label": "Geräteabgleich",
+    "onClick": "print_r(BC_Sync($id));"
+  }],
+  "status": [{
+    "code": 201,
+    "icon": "error",
+    "caption": "Zugangsdaten ungültig"
+  }]
 }

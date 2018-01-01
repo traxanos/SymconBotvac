@@ -1,10 +1,23 @@
 {
-  "elements": [
-    { "name": "Serial", "type": "ValidationTextBox", "caption": "Serial" },
-    { "name": "Secret", "type": "ValidationTextBox", "caption": "Secret" },
-    { "name": "UpdateInterval", "type": "IntervalBox", "caption": "Sekunden" }
+  "elements": [{
+      "name": "Serial",
+      "type": "ValidationTextBox",
+      "caption": "Serial"
+    },
+    {
+      "name": "Secret",
+      "type": "ValidationTextBox",
+      "caption": "Secret"
+    },
+    {
+      "name": "UpdateInterval",
+      "type": "IntervalBox",
+      "caption": "Sekunden"
+    }
   ],
-  "actions": [
-    { "type": "Button", "label": "Update", "onClick": "print_r(BR_Update($id));" }
-  ]
+  "actions": [{
+    "type": "Button",
+    "label": "Update",
+    "onClick": "print_r(BV_Update($id));"
+  }]
 }

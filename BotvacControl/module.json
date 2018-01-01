@@ -3,9 +3,9 @@
   "name": "BotvacControl",
   "type": 1,
   "vendor": "Botvac",
-  "aliases": [ "Botvac Control" ],
+  "aliases": ["Botvac Control"],
   "parentRequirements": [],
   "childRequirements": [],
   "implemented": [],
-  "prefix": "BC"
+  "prefix": "BVC"
 }
