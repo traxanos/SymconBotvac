@@ -1,0 +1,11 @@
+{
+  "id": "{0EDA2062-A28C-4A59-BB7E-BC00264827C6}",
+  "name": "BotvacRobot",
+  "type": 3,
+  "vendor": "Botvac",
+  "aliases": [ "Botvac Robot" ],
+  "parentRequirements": [],
+  "childRequirements": [],
+  "implemented": [],
+  "prefix": "BR"
+}

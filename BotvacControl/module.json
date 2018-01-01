@@ -1,0 +1,11 @@
+{
+  "id": "{E7E38317-ADD6-4FF7-A6A2-135BBB0A10F9}",
+  "name": "BotvacControl",
+  "type": 1,
+  "vendor": "Botvac",
+  "aliases": [ "Botvac Control" ],
+  "parentRequirements": [],
+  "childRequirements": [],
+  "implemented": [],
+  "prefix": "BC"
+}
