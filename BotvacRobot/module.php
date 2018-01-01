@@ -93,19 +93,19 @@ class BotvacRobot extends IPSModule
         if ($ident == 'CMD') {
             switch ($value) {
         case 1:
-          $result = $this->Start();
+          $this->Start();
           break;
         case 2:
-          $result = $this->Start(true);
+          $this->Start(true);
           break;
         case 6:
-          $result = $this->Stop();
+          $this->Stop();
           break;
         case 7:
-          $result = $this->Pause();
+          $this->Pause();
           break;
         case 8:
-          $result = $this->Resume();
+          $this->Resume();
           break;
         case 9:
         $this->SendToBase();
@@ -127,10 +127,10 @@ class BotvacRobot extends IPSModule
 
         if ($spot) {
             $params['category'] = 3;
-        } else {
-            $params['category'] = 2;
             $params['spotWidth'] = 200;
             $params['spotHeight'] = 200;
+        } else {
+            $params['category'] = 2;
         }
 
         $this->Request('startCleaning', $params);
@@ -160,9 +160,9 @@ class BotvacRobot extends IPSModule
     {
         SetValueBoolean($this->GetIDForIdent('SCHEDULE'), $value);
         if ($value) {
-            $result = $this->Request('enableSchedule');
+            $this->Request('enableSchedule');
         } else {
-            $result = $this->Request('disableSchedule');
+            $this->Request('disableSchedule');
         }
     }
 
