@@ -18,6 +18,6 @@
   "actions": [{
     "type": "Button",
     "label": "Update",
-    "onClick": "print_r(BV_Update($id));"
+    "onClick": "print_r(BVC_Update($id));"
   }]
 }

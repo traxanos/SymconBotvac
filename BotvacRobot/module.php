@@ -91,39 +91,79 @@ class BotvacRobot extends IPSModule
     public function RequestAction($ident, $value)
     {
         if ($ident == 'CMD') {
-            $mode = GetValueBoolean($this->GetIDForIdent('ECO')) ? 1 : 2;
-
             switch ($value) {
         case 1:
-          $result = $this->Request('startCleaning', array('category' => 2, 'mode' => $mode, 'modifier' => 1));
+          $result = $this->Start();
           break;
         case 2:
-          $result = $this->Request('startCleaning', array('category' => 3, 'mode' => $mode, 'modifier' => 1, 'spotWidth' => 200, 'spotHeight' => 200));
+          $result = $this->Start(true);
           break;
         case 6:
-          $result = $this->Request('stopCleaning');
+          $result = $this->Stop();
           break;
         case 7:
-          $result = $this->Request('pauseCleaning');
+          $result = $this->Pause();
           break;
         case 8:
-          $result = $this->Request('resumeCleaning');
+          $result = $this->Resume();
           break;
         case 9:
-          $result = $this->Request('sendToBase');
+        $this->SendToBase();
           break;
       }
         } elseif ($ident == 'ECO') {
             SetValueBoolean($this->GetIDForIdent('ECO'), $value);
         } elseif ($ident == 'SCHEDULE') {
-            SetValueBoolean($this->GetIDForIdent('SCHEDULE'), $value);
-            if ($value) {
-                $result = $this->Request('enableSchedule');
-            } else {
-                $result = $this->Request('disableSchedule');
-            }
+            $this->SetSchedule($value);
         }
         $this->Update();
+    }
+
+    public function Start($spot = false)
+    {
+        $params = array();
+        $params['mode'] = GetValueBoolean($this->GetIDForIdent('ECO')) ? 1 : 2;
+        $params['modifier'] = 1;
+
+        if ($spot) {
+            $params['category'] = 3;
+        } else {
+            $params['category'] = 2;
+            $params['spotWidth'] = 200;
+            $params['spotHeight'] = 200;
+        }
+
+        $this->Request('startCleaning', $params);
+    }
+
+    public function Stop()
+    {
+        $this->Request('stopCleaning');
+    }
+
+    public function Pause()
+    {
+        $this->Request('pauseCleaning');
+    }
+
+    public function Resume()
+    {
+        $this->Request('resumeCleaning');
+    }
+
+    public function SendToBase()
+    {
+        $this->Request('sendToBase');
+    }
+
+    public function SetSchedule(bool $value)
+    {
+        SetValueBoolean($this->GetIDForIdent('SCHEDULE'), $value);
+        if ($value) {
+            $result = $this->Request('enableSchedule');
+        } else {
+            $result = $this->Request('disableSchedule');
+        }
     }
 
     public function Update()

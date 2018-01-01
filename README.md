@@ -71,8 +71,38 @@ Botvac.YesNo        | Boolean   |
 
 ### 6. WebFront
 
--
+Über das WebFront kann die der Roboter gesteuert werden.
 
 ### 7. PHP-Befehlsreferenz
 
--
+`BVC_Start(integer $InstanzID, boolean $Spot);`
+Startet die Reinigung mit der InstanzID $InstanzID.
+Mittels $Spot = true, wird nur eine Spotreinigung durchgeführt.
+Die Funktion liefert keinerlei Rückgabewert.
+`BVC_Start(12345, false);`
+
+`BVC_Stop(integer $InstanzID);`
+Stoppt die Reinigung mit der InstanzID $InstanzID.
+Die Funktion liefert keinerlei Rückgabewert.
+`BVC_Stop(12345);`
+
+`BVC_Pause(integer $InstanzID);`
+Pausiert die Reinigung mit der InstanzID $InstanzID.
+Die Funktion liefert keinerlei Rückgabewert.
+`BVC_Pause(12345);`
+
+`BVC_Resume(integer $InstanzID);`
+Wiederaufnahme der Reinigung mit der InstanzID $InstanzID.
+Die Funktion liefert keinerlei Rückgabewert.
+`BVC_Resume(12345);`
+
+`BVC_SendToBase(integer $InstanzID);`
+Schickt den Roboter zur Basis mit der InstanzID $InstanzID.
+Beachtet dass dies erst geht sobald der Roboter die Basis erkannt hat.
+Die Funktion liefert keinerlei Rückgabewert.
+`BVC_SendToBase(12345);`
+
+`SetSchedule(integer $InstanzID, boolean $Value);`
+Schaltet den Zeitplan mit der InstanzID $InstanzID auf den Wert $Value (true = An; false = Aus).  
+Die Funktion liefert keinerlei Rückgabewert.  
+`SetSchedule(12345, false);`
