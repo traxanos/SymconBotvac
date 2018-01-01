@@ -178,7 +178,7 @@ class BotvacRobot extends IPSModule {
 
   private function UpdateCommandProfile($availables = false) {
     $name = 'Botvac.Command.'.$this->InstanceID;
-    if(IPS_VariableProfileExists($name) && $availables !== false) IPS_DeleteVariableProfile('Botvac.Command');
+    if(IPS_VariableProfileExists($name) && $availables !== false) IPS_DeleteVariableProfile($name);
     if(!IPS_VariableProfileExists($name)) {
       IPS_CreateVariableProfile($name, 1);
       IPS_SetVariableProfileAssociation($name, 0, 'Auswählen', '', -1);
