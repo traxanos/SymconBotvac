@@ -103,7 +103,18 @@ class BotvacControl extends IPSModule
         }
         curl_setopt($client, CURLOPT_HTTPHEADER, $headers);
         $result = curl_exec($client);
+        $status = curl_getinfo($client, CURLINFO_HTTP_CODE);
         curl_close($client);
-        return json_decode($result, true);
+
+        if ($status == '0') {
+            $this->SetStatus(201);
+            return false;
+        } elseif ($status != '200') {
+            IPS_LogMessage("SymconBotvac", "Response invalid. Code $status");
+            $this->SetStatus(201);
+            return false;
+        } else {
+            return json_decode($result, true);
+        }
     }
 }

@@ -18,11 +18,15 @@
   "actions": [{
     "type": "Button",
     "label": "Geräteabgleich",
-    "onClick": "print_r(BC_Sync($id));"
+    "onClick": "print_r(BVC_Sync($id));"
   }],
   "status": [{
+    "code": 102,
+    "icon": "active",
+    "caption": "Instanz ist aktiv"
+  }, {
     "code": 201,
     "icon": "error",
-    "caption": "Zugangsdaten ungültig"
+    "caption": "Instanz ist fehlerhaft"
   }]
 }

@@ -1,6 +1,6 @@
 # SymconBotvac
-Das Modul bindet den Vorwerk VR200 in Symcon ein.
-Später sollen noch weitere Botvac Modelle folgen
+
+SymconBotvac ist eine Erweiterung für die Heimautomatisierung IP Symcon. Mithilfe dieser Erweiterung könnt Ihr euren Vorwerk Kobold VR200 steuern. Später sollen auch weitere Botvac-Roboter dazu kommen.
 
 ### Inhaltverzeichnis
 
@@ -14,8 +14,8 @@ Später sollen noch weitere Botvac Modelle folgen
 
 ### 1. Funktionsumfang
 
-* Automatische Anlage mithilfe der Vorwerk Zugangdaten.
-* Steuerung des Staubsaugerroboter
+- Automatische Anlage mithilfe der Vorwerk Zugangdaten.
+- Steuerung des Staubsaugerroboter
 
 ### 2. Voraussetzungen
 
