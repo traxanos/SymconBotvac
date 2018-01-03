@@ -50,7 +50,7 @@ class BotvacControl extends IPSModule
             IPS_SetProperty($id, 'Secret', $secret);
             IPS_SetName($id, $name);
             IPS_ApplyChanges($id);
-            BR_Update($id);
+            BVC_Update($id);
         }
         echo "$name (Serial: $serial)\n";
     }
