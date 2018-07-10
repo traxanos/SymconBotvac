@@ -109,7 +109,7 @@ class BotvacControl extends IPSModule
         if ($status == '0') {
             $this->SetStatus(201);
             return false;
-        } elseif ($status != '200') {
+        } elseif ($status != '200' && $status != '201') {
             IPS_LogMessage("SymconBotvac", "Response invalid. Code $status");
             $this->SetStatus(201);
             return false;
