@@ -4,6 +4,8 @@ class BotvacControl extends IPSModule
     public function Create()
     {
         parent::Create();
+        $this->RegisterPropertyString('VendorName', 'vorwerk');
+        $this->RegisterPropertyString('VendorBaseUrl', 'https://vorwerk-beehive-production.herokuapp.com');
         $this->RegisterPropertyString('Email', '');
         $this->RegisterPropertyString('Password', '');
         $this->RegisterPropertyString('Token', '');
@@ -20,8 +22,8 @@ class BotvacControl extends IPSModule
         if ($this->ReadPropertyString('Token') == '') {
             $this->CreateToken();
         }
-
-        $url = 'https://vorwerk-beehive-production.herokuapp.com/dashboard';
+        $vendorBaseUrl = $this->ReadPropertyString('VendorBaseUrl');
+        $url = $vendorBaseUrl . '/dashboard';
         $params = array();
         $headers = array();
         $headers[] = "Accept: application/json";
@@ -32,14 +34,17 @@ class BotvacControl extends IPSModule
                 $serial = $robot['serial'];
                 $secret = $robot['secret_key'];
                 $name = $robot['name'];
-                $this->CreateOrUpdateRobot($serial, $secret, $name);
+                $nucleoUrl = $robot['nucleo_url'];
+                $this->CreateOrUpdateRobot($serial, $secret, $name, $nucleoUrl);
             }
         }
     }
 
-    private function CreateOrUpdateRobot($serial, $secret, $name)
+    private function CreateOrUpdateRobot($serial, $secret, $name, $nucleo_url)
     {
         $Category = $this->ReadPropertyInteger('Category');
+        $VendorName = $this->ReadPropertyString('VendorName');
+
         $id = $this->FindBySerial($serial);
         if ($Category && !$id) {
             $id = IPS_CreateInstance('{0EDA2062-A28C-4A59-BB7E-BC00264827C6}');
@@ -48,6 +53,7 @@ class BotvacControl extends IPSModule
         }
         if ($id) {
             IPS_SetProperty($id, 'Secret', $secret);
+            IPS_SetProperty($id, 'NucleoUrl', $nucleo_url . "/vendors/" . $VendorName);
             IPS_SetName($id, $name);
             IPS_ApplyChanges($id);
             BVC_Update($id);
@@ -70,7 +76,8 @@ class BotvacControl extends IPSModule
 
     private function CreateToken()
     {
-        $url = 'https://vorwerk-beehive-production.herokuapp.com/sessions';
+        $vendorBaseUrl = $this->ReadPropertyString('VendorBaseUrl');
+        $url = $vendorBaseUrl . '/sessions';
         $params = array();
         $params['platform'] = 'ios';
         $params['email'] = $this->ReadPropertyString('Email');

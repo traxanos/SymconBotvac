@@ -6,6 +6,7 @@ class BotvacRobot extends IPSModule
         parent::Create();
         $this->RegisterPropertyString('Serial', '');
         $this->RegisterPropertyString('Secret', '');
+        $this->RegisterPropertyString('NucleoUrl', '');
         $this->RegisterPropertyInteger('UpdateInterval', 120);
 
         $this->RegisterTimer('Update', 0, 'BVC_Update($_IPS[\'TARGET\'], 0);');
@@ -279,7 +280,8 @@ class BotvacRobot extends IPSModule
         }
         $data = json_encode($data);
 
-        $url = "https://nucleo.ksecosys.com/vendors/vorwerk/robots/$serial/messages";
+        $baseUrl = $this->ReadPropertyString('NucleoUrl');
+        $url = $baseUrl . "/robots/$serial/messages";
         $auth = hash_hmac('sha256', implode("\n", array($serial, $date, $data)), $secret);
 
         $client = curl_init($url);

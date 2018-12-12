@@ -13,6 +13,11 @@
       "name": "UpdateInterval",
       "type": "IntervalBox",
       "caption": "Sekunden"
+    },
+    {
+      "name": "NucleoUrl",
+      "type": "ValidationTextBox",
+      "caption": "Nucleo URL"
     }
   ],
   "actions": [{
