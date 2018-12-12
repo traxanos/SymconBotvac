@@ -1,6 +1,6 @@
 # SymconBotvac
 
-SymconBotvac ist eine Erweiterung für die Heimautomatisierung IP Symcon. Mithilfe dieser Erweiterung könnt Ihr euren Vorwerk Kobold VR200 steuern. Später sollen auch weitere Botvac-Roboter dazu kommen.
+SymconBotvac ist eine Erweiterung für die Heimautomatisierung IP Symcon. Mithilfe dieser Erweiterung könnt Ihr euren Vorwerk Kobold VR200 oder Neato Botvac steuern. Später sollen auch weitere Botvac-Roboter dazu kommen.
 
 ### Inhaltverzeichnis
 
@@ -14,7 +14,7 @@ SymconBotvac ist eine Erweiterung für die Heimautomatisierung IP Symcon. Mithil
 
 ### 1. Funktionsumfang
 
-- Automatische Anlage mithilfe der Vorwerk Zugangdaten.
+- Automatische Anlage mithilfe der Vorwerk/Neato Zugangdaten.
 - Steuerung des Staubsaugerroboter
 
 ### 2. Voraussetzungen
@@ -30,16 +30,18 @@ SymconBotvac ist eine Erweiterung für die Heimautomatisierung IP Symcon. Mithil
 
 - Anlage eines Ordner Namens Botvac
 - Unter "I/O Instanzen" eine Instanz "BotvacControl" anlegen.
+- Auswahl des Herstellers (Vorwerk / Neato)
 - Eingabe der Zugangsdaten
 - Sowie die zuvor angelegte Kategorie
-- Starte "Gerätea"
+- Starte "Geräteabgleich"
 
 __Konfigurationsseite__:
 
 Name                   | Beschreibung
 ---------------------- | ---------------------------------
-E-Mail                 | E-Mailadresse aus der Vorwerkapp
-Passwort               | Passwort aus der Vorwerkapp
+Hersteller             | Auswahl des Herstellers
+E-Mail                 | E-Mailadresse aus der App
+Passwort               | Passwort aus der App
 Button "Geräteabgleich"| Abgleich aller Roboter
 
 ### 5. Statusvariablen und Profile

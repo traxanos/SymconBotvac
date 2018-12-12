@@ -1,5 +1,39 @@
 {
-  "elements": [{
+  "elements": [
+    {
+      "name": "Vendor",
+      "type": "Select",
+      "caption": "Hersteller",
+      "options": [
+        {
+          "caption": "Vorwerk",
+          "value": [
+            {
+              "name": "VendorName",
+              "value": "vorwerk"
+            },
+            {
+              "name": "VendorBaseUrl",
+              "value": "https://vorwerk-beehive-production.herokuapp.com"
+            }
+          ]
+        },
+        {
+          "caption": "Neato",
+          "value": [
+            {
+              "name": "VendorName",
+              "value": "neato"
+            },
+            {
+              "name": "VendorBaseUrl",
+              "value": "https://beehive.neatocloud.com"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "Email",
       "type": "ValidationTextBox",
       "caption": "E-Mail"
@@ -15,18 +49,23 @@
       "caption": "Kategorie"
     }
   ],
-  "actions": [{
-    "type": "Button",
-    "label": "Geräteabgleich",
-    "onClick": "print_r(BVC_Sync($id));"
-  }],
-  "status": [{
-    "code": 102,
-    "icon": "active",
-    "caption": "Instanz ist aktiv"
-  }, {
-    "code": 201,
-    "icon": "error",
-    "caption": "Instanz ist fehlerhaft"
-  }]
+  "actions": [
+    {
+      "type": "Button",
+      "label": "Geräteabgleich",
+      "onClick": "print_r(BVC_Sync($id));"
+    }
+  ],
+  "status": [
+    {
+      "code": 102,
+      "icon": "active",
+      "caption": "Instanz ist aktiv"
+    },
+    {
+      "code": 201,
+      "icon": "error",
+      "caption": "Instanz ist fehlerhaft"
+    }
+  ]
 }
